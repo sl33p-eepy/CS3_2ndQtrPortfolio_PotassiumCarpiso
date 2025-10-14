@@ -59,12 +59,23 @@
     }
 
     p{
+        width:800px;
+        background-color:#fcb7bf;
         font-size: 30px;
         color:#e32a77;
-        margin-left:40px;
-        margin-right:40px;
-        padding:30px;
+        margin-left:auto;
+        margin-right:auto;
+        padding:20px;
     }
+
+    table tr:first-child th {
+                background-color: rgba(255, 181, 190, 0.5);
+            }
+        
+    table tr:not(:first-child) th:first-child,
+    table tr:not(:first-child) td:first-child {
+                background-color:rgba(250, 225, 156, 0.5);
+            }
 
     .bottom-photo{
         display:block;
@@ -73,6 +84,46 @@
         border-radius:20px;
         box-shadow: 0 0 30px #7b525d;
     }
+
+    .redirect-card{
+      width:300px;
+      height:auto;
+      background-color: #fbffb7;
+      border-radius: 15px;
+      border:2px solid #f6e018;
+      box-shadow: 0 0 20px #f0db65;
+      margin: 30px auto;
+      padding: 15px;
+      text-align: center;
+    }
+
+    .redirect-header{
+      font-size: 32px;
+      font-weight: bold;
+      color: #e93c65;
+      text-align:center;
+    }
+
+    .member-list{
+      list-style-type: disc;
+      padding:20px;
+      margin: 10px;
+      text-align:center;
+    }
+
+    .member-list a{
+      display:inline;
+      text-decoration: underline;
+      color: #ed708d;
+      font-weight:bold;
+      font-size: 25px;
+    }
+
+    .member-list a:hover{
+      color: #fc94ad;
+      cursor:pointer;
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body>
@@ -80,7 +131,6 @@
     <h1>Chiara's Slambook ⭑.ᐟ</h1>
 
     <table class="center">
-      <tbody>
       <tr>
         <th><b>Category ⊹</b></th>
         <th><b>My Answer ❀</b></th>
@@ -128,17 +178,9 @@
         <td>Japan ⸝⸝ South Korea ⸝⸝ Wales</td>
         <td>kyoto prefecture ?</td>
       </tr>
-      </tbody>
-
-      <style>
-        table
-            tr:first-child {
-                background-color: rgba(255, 181, 190, 0.5);
-            }
-      </style>
     </table>
 
-    <div class="footer">
+    <div class="ending">
     <p>Hiii! So, looks like you know a bit more about me after this :p
         <br>Um I don't know what else to say so let's go to the video now...</p>
 
@@ -149,8 +191,16 @@
 
     <img src="jjk.jpg" class="bottom-photo" width="500px" height="300px" style="display:block; margin:auto">
     
-    <p>I chose this picture from one of my fav animes, Jujutsu Kaisen, because I miss them and I'm so excited for the new season coming out this December</p>
+    <p>I chose this picture from Jujutsu Kaisen because it's one of my fav animes and I'm so excited for the new season coming out this December !</p>
     </div>
 
+    <div class="redirect-card">
+      <div class="redirect-header">💌 Other Links !</div>
+      <ul class="member-list">
+        <a href="https://miarobangk25.github.io/CS3_1stQtrPortfolio/public/2Q1GKRobang.html">Mia's Site</a>
+        <br><a href="example.com">Pio's Site</a>
+        <br><a href="example.com">Teo's Site</a>
+      </ul>
+    </div>
 </body>
 </html>
