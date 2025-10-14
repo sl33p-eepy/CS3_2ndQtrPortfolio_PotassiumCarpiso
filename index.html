@@ -8,14 +8,82 @@
         <meta name="description" content="A simple grade9 template with favicon, meta tags, navigation, and footer.">
         <meta name="author" content="Chiara">
 
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
         <link rel="stylesheet" href="style.css">
+        <style>
+            body{
+                background-image:url('./public/bg3.jpg');
+                background-size: cover;
+                background-repeat:no-repeat;
+                background-attachment: fixed;
+                padding:20px;
+                display:flex;
+                color:rgb(215, 64, 30);
+                font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                font-size:20px;
+                text-align:center;
+                align-items:center;
+            }
+
+            .box{
+                background:rgba(250, 238, 197, 0.623);
+                padding:30px;
+                border: 2px solid rgb(119, 225, 32);
+                border-radius:20px;
+                box-shadow: 0 0 20px rgba(107, 187, 26, 0.574);
+                backdrop-filter: blur(10px);
+                margin-left:675px;
+                margin-top:175px;
+                width:725px;
+                height:auto;
+                display:flex;
+                flex-direction:column;
+                transition: transform 0.4s, box-shadow 0.3s;
+                box-shadow:
+                    0 0 30px rgba(107, 187, 26, 0.574),
+                    0 0 50px rgba(107, 187, 26, 0.574),
+                    0 10 70px rgba(0, 0, 0, 0.574);
+
+            }
+
+            .box:hover{
+                transform: scale(1.05);
+                box-shadow:
+                    0 0 35px rgba(144, 241, 46, 0.574),
+                    0 0 70px rgba(144, 241, 46, 0.574),
+                    0 22 40px rgba(0, 0, 0, 0.574);
+            }
+
+            h1{
+                font-size:40px;
+                font-weight: bold;
+                margin-bottom:10px;
+            }
+
+            nav ul a{
+                color:rgb(233, 89, 56);
+                text-decoration: none;
+                font-size:25px;
+                font-weight:semi-bold;
+                transition:color 0.3s;
+            }
+
+            nav ul a:hover{
+                color:rgb(244, 129, 104);
+                text-decoration: underline;
+            }
+        </style>
     </head>
     <body>
-        <h1>Links to Carpiso's Works</h1>
+        <section class="w3-container">
+        <div class="box">
+        <h1>Links to Carpiso's Work ദ്ദി ˉ͈̀꒳ˉ͈́ )✧</h1>
         <nav>
             <ul>
         <a href="./public/Q21GKCarpiso.html">Q2 First Graded</a><br>
         </ul>
         </nav>
+        </div>
+        </section>
     </body>
 </html>
