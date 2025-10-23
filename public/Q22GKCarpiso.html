@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>K06 Slambook!</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://github.com/sl33p-eepy/CS3_2ndQtrPortfolio_PotassiumCarpiso/blob/main/style.cssstyle.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Delius&display=swap" rel="stylesheet">
@@ -105,13 +105,24 @@
     table tr:not(:first-child) td:first-child {
                 background-color:rgba(250, 225, 156, 0.5);
             }
-
+    
     .bottom-photo{
         display:block;
         max-width:500px;
         height:auto;
         border-radius:20px;
         box-shadow: 0 0 30px #7b525d;
+        display:flex;
+        margin-top: 30px;
+        padding:10px;
+        transition: transform 0.4s, box-shadow 0.3s;
+    }
+
+    .bottom-photo:hover{
+      transform: scale(1.05);
+      box-shadow: 0 0 40px #a67881;
+      transition: transform 0.4s, box-shadow 0.3s;
+      backdrop-filter:blur(10px);
     }
 
     .redirect-card{
@@ -124,6 +135,14 @@
       margin: 30px auto;
       padding: 15px;
       text-align: center;
+      transition:transform 0.4s, box-shadow 0.3s;
+    }
+
+    .redirect-card:hover{
+      transform: scale(1.05);
+      box-shadow: 0 0 40px #faf2a0;
+      transition: transform 0.4s, box-shadow 0.3s;
+      backdrop-filter:blur(10px);
     }
 
     .redirect-header{
@@ -163,11 +182,22 @@
       text-align: center;
       width:auto;
     }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes fadeUp {
+      from { transform: translateY(20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
   </style>
 
-   <ul>
+  <ul class="navigation">
+    <li><a href="./public/Q21GKCarpiso.html"><b>1st Graded</b></a></li>
     <li><a href="./public/Q21NGKCarpiso.html"><b>1st Non-Graded</b></a></li>
-    <li><a href="./public/Q22GKCarpiso.html"><b>2nd Graded</b></a></li>
+</ul>
 </head>
 <body>
 
