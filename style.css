@@ -18,6 +18,8 @@ footer{
     margin:20px;
     padding:10px;
     display:flex;
+    justify-content: center;
+    text-align:center;
 }
 
 @keyframes fadeIn {
