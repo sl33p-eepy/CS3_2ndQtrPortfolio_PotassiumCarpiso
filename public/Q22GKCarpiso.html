@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>K06 Slambook!</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://sl33p-eepy.github.io/CS3_2ndQtrPortfolio_PotassiumCarpiso/style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Delius&display=swap" rel="stylesheet">
@@ -40,7 +40,7 @@
 
     body{
       font-family: Delius, cursive;
-      background-image: url('bg2.jpg');
+      background-image: url('bg4.jpg');
       background-size:cover;
       background-repeat: no-repeat;
       background-attachment: fixed;
@@ -50,7 +50,7 @@
 
     h1{
       font-size:50px;
-      color: #93be69;
+      color: #6a3d3e;
       font-weight: bold;
       text-shadow:
         -1px -1px 0 #fffffddd,
@@ -66,8 +66,8 @@
         border-radius: 10px;
         overflow: hidden;
         margin: 15px auto;
-        background-color:rgba(249, 228, 178, 0.5);
-        box-shadow: 0 0 20px #cf687e;
+        background-color:rgba(249, 228, 178, 0.697);
+        box-shadow: 0 0 20px #a45768;
         width:67%;
         table-layout: auto;
         z-index: 1;
@@ -76,10 +76,10 @@
     td,th{
         padding: 13px;
         border-radius: 10px;
-        border: 2px solid #34b0b0;
+        border: 2px solid #f9846f;
         text-align: center;
         font-size: 20px;
-        color: #d55a68;
+        color: #b43f4c;
     }
 
     table.center{
@@ -89,29 +89,41 @@
 
     p{
         width:800px;
-        background-color:#fcb7bf;
+        background-color:#fce0b7;
         font-size: 30px;
-        color:#e32a77;
+        color:#832e3b;
         margin-left:auto;
         margin-right:auto;
+        border-radius:15px;
         padding:20px;
     }
 
     table tr:first-child th {
-                background-color: rgba(255, 181, 190, 0.5);
+                background-color: rgba(252, 163, 173, 0.5);
             }
         
     table tr:not(:first-child) th:first-child,
     table tr:not(:first-child) td:first-child {
                 background-color:rgba(250, 225, 156, 0.5);
             }
-
+    
     .bottom-photo{
         display:block;
         max-width:500px;
         height:auto;
         border-radius:20px;
         box-shadow: 0 0 30px #7b525d;
+        display:flex;
+        margin-top: 30px;
+        padding:10px;
+        transition: transform 0.4s, box-shadow 0.3s;
+    }
+
+    .bottom-photo:hover{
+      transform: scale(1.05);
+      box-shadow: 0 0 40px #a67881;
+      transition: transform 0.4s, box-shadow 0.3s;
+      backdrop-filter:blur(10px);
     }
 
     .redirect-card{
@@ -121,15 +133,23 @@
       border-radius: 15px;
       border:2px solid #f6e018;
       box-shadow: 0 0 20px #f0db65;
-      margin: 30px auto;
+      margin: 50px auto;
       padding: 15px;
       text-align: center;
+      transition:transform 0.4s, box-shadow 0.3s;
+    }
+
+    .redirect-card:hover{
+      transform: scale(1.05);
+      transition: transform 0.4s, box-shadow 0.3s;
+      backdrop-filter:blur(10px);
+      box-shadow: 0 0 40px #faf2a0;
     }
 
     .redirect-header{
       font-size: 32px;
       font-weight: bold;
-      color: #e93c65;
+      color: #7d0b25;
       text-align:center;
     }
 
@@ -143,32 +163,43 @@
     .member-list a{
       display:inline;
       text-decoration: underline;
-      color: #ed708d;
+      color: #8d2c43;
       font-weight:bold;
       font-size: 25px;
     }
 
     .member-list a:hover{
-      color: #fc94ad;
+      color: #c54966;
       cursor:pointer;
       text-decoration: underline;
     }
 
     footer{
-      margin-top: 50px;
+      margin:0;
       padding: 10px;
-      background-color: #fcb7bf;
-      color: #e32a77;
+      background-color: #ac5b66;
+      color: #4b122a;
       font-size: 20px;
       text-align: center;
       width:auto;
+      justify-content:center;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes fadeUp {
+      from { transform: translateY(20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
     }
   </style>
 
-   <ul class="navigation">
+  <ul class="navigation">
+    <li><a href="https://sl33p-eepy.github.io/CS3_2ndQtrPortfolio_PotassiumCarpiso/public/Q21GKCarpiso.html"><b>1st Graded</b></a></li>
     <li><a href="https://sl33p-eepy.github.io/CS3_2ndQtrPortfolio_PotassiumCarpiso/public/Q21NGKCarpiso.html"><b>1st Non-Graded</b></a></li>
-    <li><a href="https://sl33p-eepy.github.io/CS3_2ndQtrPortfolio_PotassiumCarpiso/public/Q22GKCarpiso.html"><b>2nd Graded</b></a></li>
-    </ul>
+</ul>
 </head>
 <body>
 
@@ -241,9 +272,9 @@
     <div class="redirect-card">
       <div class="redirect-header">💌 Other Links !</div>
       <ul class="member-list">
-        <a href="https://miarobangk25.github.io/CS3_1stQtrPortfolio/public/2Q1GKRobang.html">Mia's Site</a>
-        <br><a href="https://pdmfestejo-2029.github.io/CS3_1stQtrPortfolio_PotassiumFESTEJO/public/2Q1GPotassiumFestejo.html">Pio's Site</a>
-        <br><a href="https://mustardkendrickmango.github.io/CS3_2ndQtr_Potassium/">Teo's Site</a>
+        <a href="https://miarobangk25.github.io/CS3_1stQtrPortfolio/public/2Q2GKRobang.html">Mia's Site</a>
+        <br><a href="https://pdmfestejo-2029.github.io/CS3_1stQtrPortfolio_PotassiumFESTEJO/public/2Q2GPotassiumFestejo.html">Pio's Site</a>
+        <br><a href="https://mustardkendrickmango.github.io/CS3_2ndQtrPortfolio_PotassiumSalandanan/2nd%20Graded.html">Teo's Site</a>
       </ul>
     </div>
 
