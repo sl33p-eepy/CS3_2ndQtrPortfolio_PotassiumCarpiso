@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Q4 Ist Graded - Movie Rating</title>
+
+    <style>
+
+    </style>
+</head>
+<body>
+    <main>
+        <form id="signupForm" method="post" onsubmit="return handleSubmit(event)" onreset="return confirmReset()">
+
+            <fieldset>
+                <legend>Add a Movie</legend>
+
+                <label>
+                    Title:
+                    <input type="text" required onblur="checkEmpty(this)">
+                </label>
+
+                <label>
+                    Year:
+                    <input type="number" required>
+                </label>
+
+                <label>
+                    Genre:
+                    <select required>
+                        <option value="" disabled selected>Select Genre</option>
+                        <option value="romance">Romance</option>
+                        <option value="comedy">Comedy</option>
+                        <option value="horror">Horror</option>
+                        <option value="action">Action</option>
+                    </select>
+                </label>
+            </fieldset>
+
+            <div class="button">
+                <input type="submit" value="Add Movie" class="button" onclick="goToView()">
+            </div>
+        </form>
+    </main>
+
+    <script>
+        function checkEmpty(element) {
+            if (element.value.trim() === "") {
+                element.movie.add("error")
+            } else {
+                element.classList.remove("error");
+            }
+        }
+    </script>
+</body>
+</html>
