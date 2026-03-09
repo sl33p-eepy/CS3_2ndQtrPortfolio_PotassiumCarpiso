@@ -5,7 +5,89 @@
     <title>Q4 Ist Graded - Movie Rating</title>
 
     <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+        }
 
+        main{
+            width: 500px;
+        }
+
+        form{
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 3px 10px rgba(0,0,0,0.1);
+        }
+
+        fieldset{
+            border: none;
+        }
+
+        legend{
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        label{
+            display: block;
+            margin-top: 10px;
+        }
+
+        input, select{
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+
+        button{
+            margin-top: 15px;
+            width: 100%;
+            padding: 10px;
+            background-color: #1e73d8;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 15px;
+            cursor: pointer;
+        }
+
+        button:hover{
+            background-color: #155ab6;
+        }
+
+        .stars{
+            margin-top: 5px;
+        }
+
+        .star{
+            font-size: 22px;
+            cursor: pointer;
+            color: lightgray;
+        }   
+        
+        .star.active{
+            color: gold;
+        }
+
+        h2{
+            margin-top: 20px;
+        }
+
+        .movie{
+            background: #eeeeee;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
     </style>
 </head>
 <body>
@@ -17,40 +99,103 @@
 
                 <label>
                     Title:
-                    <input type="text" required onblur="checkEmpty(this)">
+                    <input type="text" id="title" required onblur="checkEmpty(this)">
                 </label>
 
                 <label>
                     Year:
-                    <input type="number" required>
+                    <input type="number" id="year" required>
                 </label>
 
                 <label>
                     Genre:
-                    <select required>
+                    <select id="genre" required>
                         <option value="" disabled selected>Select Genre</option>
                         <option value="romance">Romance</option>
                         <option value="comedy">Comedy</option>
                         <option value="horror">Horror</option>
                         <option value="action">Action</option>
+                        <option value="sci-fi">Sci-Fi</option>
                     </select>
                 </label>
+
+                <label>Rating:</label>
+                <div class="stars">
+                    <span class="star" data-value="1">★</span>
+                    <span class="star" data-value="2">★</span>
+                    <span class="star" data-value="3">★</span>
+                    <span class="star" data-value="4">★</span>
+                    <span class="star" data-value="5">★</span>
+                </div>
             </fieldset>
 
-            <div class="button">
-                <input type="submit" value="Add Movie" class="button" onclick="goToView()">
-            </div>
+            <button type="button" onclick="addMovie()">Add Movie</button>
         </form>
+
+        <br>
+
+        <h2>Movie List</h2>
+        <div class="movieList"></div>
     </main>
 
     <script>
-        function checkEmpty(element) {
-            if (element.value.trim() === "") {
-                element.movie.add("error")
-            } else {
-                element.classList.remove("error");
+        let rating=0;
+
+        const stars = document.querySelectorAll(".star");
+
+        stars.forEach(star=>{
+            star.addEventListener("click", function(){
+                rating = this.dataset.value
+
+                stars.forEach(s=>s.classList.remove("active"))
+
+                for(let i = 0; i < rating; i++){
+                    stars[i].classList.add("active")
+                }
+            })
+        })
+
+        function addMovie() {
+            const title = document.getElementById("title").value
+            const year = document.getElementById("year").value
+            const genre = document.getElementById("genre").value
+
+            const movie = {
+                title:title,
+                year:year,
+                genre:genre,
+                rating:rating
             }
+
+            let movies = JSON.parse(localStorage.getItem("movies")) || []
+
+            movies.push(movie)
+
+            localStorage.setItem("movies", JSON.stringify(movies))
+
+            displayMovies()
         }
+
+        function displayMovies() {
+            const list = document.querySelector(".movieList")
+
+            list.innerHTML = ""
+            let movies = JSON.parse(localStorage.getItem("movies")) || []
+
+            movies.forEach(movie=>{
+                let stars = "★".repeat(movie.rating)
+
+                let div = document.createElement("div")
+                div.className = "movie"
+
+                div.innerHTML = 
+                `${movie.title} (${movie.year}) - ${movie.genre}, Rating: ${stars}`
+
+                list.appendChild(div)
+                })
+        }
+
+        displayMovies()
     </script>
 </body>
 </html>
