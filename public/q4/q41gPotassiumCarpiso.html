@@ -6,20 +6,27 @@
 
     <style>
         body{
-            font-family: Arial, Helvetica, sans-serif;
-            background-color: #f2f2f2;
+            font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            background-image: url('../bg6.jpg');
+            background-size:cover;
+            background-repeat: no-repeat;
+            
             display: flex;
+            flex-direction: column;
             justify-content: center;
-            margin-top: 40px;
+            margin: 0;
+            scroll-behavior: smooth;
         }
 
         main{
-            width: 500px;
+            width: 600px;
+            flex: 1;
+            margin: 50px auto;
         }
 
         form{
-            background: white;
-            padding: 20px;
+            background: rgba(248, 241, 243, 0.599);
+            padding: 40px;
             border-radius: 8px;
             box-shadow: 0px 3px 10px rgba(0,0,0,0.1);
         }
@@ -38,6 +45,7 @@
         label{
             display: block;
             margin-top: 10px;
+            width: 475px;
         }
 
         input, select{
@@ -52,7 +60,7 @@
             margin-top: 15px;
             width: 100%;
             padding: 10px;
-            background-color: #1e73d8;
+            background-color: #598e9a;
             color: white;
             border: none;
             border-radius: 5px;
@@ -61,7 +69,7 @@
         }
 
         button:hover{
-            background-color: #155ab6;
+            background-color: #f7a5cd;
         }
 
         .stars{
@@ -89,6 +97,27 @@
             margin-top: 10px;
             border: 1px solid #ccc;
         }
+
+        .list {
+            background: rgba(248, 241, 243, 0.599);
+            padding: 10px;
+            border-radius: 8px;
+        }
+
+        .starRating{
+            color: gold;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: auto;
+            font-size: 14px;
+            color: #333;
+            background-color:#f4ea9f ;
+            width: 100%;
+            padding: 10px 0;
+            margin-bottom: 0;
+        }
     </style>
 </head>
 <body>
@@ -112,11 +141,12 @@
                     Genre:
                     <select id="genre" required>
                         <option value="" disabled selected>Select Genre</option>
-                        <option value="romance">Romance</option>
-                        <option value="comedy">Comedy</option>
-                        <option value="horror">Horror</option>
-                        <option value="action">Action</option>
-                        <option value="sci-fi">Sci-Fi</option>
+                        <option value="Romance">Romance</option>
+                        <option value="Comedy">Comedy</option>
+                        <option value="Horror">Horror</option>
+                        <option value="Action">Action</option>
+                        <option value="Sci-fi">Sci-Fi</option>
+                        <option value="Fantasy">Fantasy</option>
                     </select>
                 </label>
 
@@ -135,9 +165,15 @@
 
         <br>
 
+        <div class="list">
         <h2>Movie List</h2>
         <div class="movieList"></div>
+        </div>
     </main>
+
+    <footer>
+        <p>2025 Carpiso || Q4 First Graded</p>
+    </footer>
 
     <script>
         let rating=0;
@@ -161,20 +197,36 @@
             const year = document.getElementById("year").value
             const genre = document.getElementById("genre").value
 
-            const movie = {
-                title:title,
-                year:year,
-                genre:genre,
-                rating:rating
-            }
-
             let movies = JSON.parse(localStorage.getItem("movies")) || []
+            
+            let existing = movies.find(m => m.title.toLowerCase() === title.toLowerCase())
 
-            movies.push(movie)
+            if(existing) {
+                existing.year = year
+                existing.genre = genre
+
+                existing.count += 1
+
+                existing.rating = Math.round((existing.rating * (existing.count - 1) + Number(rating)) / existing.count)
+            } else {
+                const movie = {
+                    title: title,
+                    year: year,
+                    genre: genre,
+                    rating: rating,
+                    count: 1
+                }
+
+                movies.push(movie)
+            }
 
             localStorage.setItem("movies", JSON.stringify(movies))
 
             displayMovies()
+
+            document.getElementById("signupForm").reset()
+            rating = 0
+            stars.forEach(s => s.classList.remove("active"))
         }
 
         function displayMovies() {
@@ -190,10 +242,21 @@
                 div.className = "movie"
 
                 div.innerHTML = 
-                `${movie.title} (${movie.year}) - ${movie.genre}, Rating: ${stars}`
+                `${movie.title} (${movie.year}) - ${movie.genre}, 
+                Rating: <span class="starRating">${stars}</span>
+                <button onclick="deleteMovie('${movie.title}')">Delete</button>`
 
                 list.appendChild(div)
                 })
+        }
+
+        function deleteMovie(index) {
+            if (confirm("Delete this movie?")) {
+                let movies = JSON.parse(localStorage.getItem("movies")) || []
+                movies.splice(index, 1)
+                localStorage.setItem("movies", JSON.stringify(movies))
+                displayMovies()
+            }
         }
 
         displayMovies()
